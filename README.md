@@ -34,6 +34,9 @@ cd -
 * Farthest Insertion
 * Nearest Neighborhood
 
+## Command for Inference using a pretrained model
+* Command.md
+
 ## Data
 
 Please check the `data` folder.
