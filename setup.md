@@ -1,8 +1,4 @@
-## Details for the environment
-
-'''
-DIFUSCO Env. Setting
-
+## Details for the environment setting
 
 PyTorch
 1. Pytorch hompage에서 cuda에 맞는 거 install
@@ -110,4 +106,3 @@ lkh_path = "data/LKH-3.0.12/LKH"
 
 from concorde.tsp import TSPSolver
 이거를 tsp.py의 relative path로 변경
-'''
