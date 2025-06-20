@@ -11,9 +11,7 @@ See ["DIFUSCO: Graph-based Diffusion Solvers for Combinatorial Optimization"](ht
 
 ## Setup
 
-```
 Reference Setup.md
-```
 
 Running TSP experiments requires installing the additional cython package for merging the diffusion heatmap results:
 
