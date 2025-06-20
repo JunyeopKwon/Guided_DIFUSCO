@@ -1,0 +1,15 @@
+{"time":"2025-05-29T00:33:22.54407354+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/user/Desktop/kjy/DIFUSCO/data/models/wandb/offline-run-20250529_003322-iqrapotp/logs/debug-core.log"}
+{"time":"2025-05-29T00:33:22.649613187+09:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-05-29T00:33:22.649710093+09:00","level":"INFO","msg":"created new stream","id":"iqrapotp"}
+{"time":"2025-05-29T00:33:22.64972799+09:00","level":"INFO","msg":"stream: started","id":"iqrapotp"}
+{"time":"2025-05-29T00:33:22.649764234+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"iqrapotp"}
+{"time":"2025-05-29T00:33:22.649842291+09:00","level":"INFO","msg":"sender: started","stream_id":"iqrapotp"}
+{"time":"2025-05-29T00:33:22.649866587+09:00","level":"INFO","msg":"handler: started","stream_id":"iqrapotp"}
+{"time":"2025-05-29T00:33:22.65389933+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-29T00:33:23.656592954+09:00","level":"INFO","msg":"stream: closing","id":"iqrapotp"}
+{"time":"2025-05-29T00:33:23.656631432+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-29T00:33:23.656673866+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-29T00:33:23.656751552+09:00","level":"INFO","msg":"handler: closed","stream_id":"iqrapotp"}
+{"time":"2025-05-29T00:33:23.656758503+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"iqrapotp"}
+{"time":"2025-05-29T00:33:23.656774507+09:00","level":"INFO","msg":"sender: closed","stream_id":"iqrapotp"}
+{"time":"2025-05-29T00:33:23.656851663+09:00","level":"INFO","msg":"stream: closed","id":"iqrapotp"}

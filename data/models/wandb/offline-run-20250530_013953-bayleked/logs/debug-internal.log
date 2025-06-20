@@ -1,0 +1,15 @@
+{"time":"2025-05-30T01:39:53.393628833+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/user/Desktop/kjy/DIFUSCO/data/models/wandb/offline-run-20250530_013953-bayleked/logs/debug-core.log"}
+{"time":"2025-05-30T01:39:53.499205093+09:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-05-30T01:39:53.499356681+09:00","level":"INFO","msg":"created new stream","id":"bayleked"}
+{"time":"2025-05-30T01:39:53.499380476+09:00","level":"INFO","msg":"stream: started","id":"bayleked"}
+{"time":"2025-05-30T01:39:53.499453666+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"bayleked"}
+{"time":"2025-05-30T01:39:53.499488138+09:00","level":"INFO","msg":"handler: started","stream_id":"bayleked"}
+{"time":"2025-05-30T01:39:53.499534096+09:00","level":"INFO","msg":"sender: started","stream_id":"bayleked"}
+{"time":"2025-05-30T01:39:53.504601969+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-30T02:58:43.437701068+09:00","level":"INFO","msg":"stream: closing","id":"bayleked"}
+{"time":"2025-05-30T02:58:43.437737953+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-30T02:58:43.437791884+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-30T02:58:43.437880016+09:00","level":"INFO","msg":"handler: closed","stream_id":"bayleked"}
+{"time":"2025-05-30T02:58:43.437892965+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"bayleked"}
+{"time":"2025-05-30T02:58:43.437916981+09:00","level":"INFO","msg":"sender: closed","stream_id":"bayleked"}
+{"time":"2025-05-30T02:58:43.438035309+09:00","level":"INFO","msg":"stream: closed","id":"bayleked"}

@@ -1,0 +1,15 @@
+{"time":"2025-06-04T16:59:26.22620318+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/user/Desktop/kjy/DIFUSCO/data/models/wandb/offline-run-20250604_165925-hdu91ewc/logs/debug-core.log"}
+{"time":"2025-06-04T16:59:26.332380473+09:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-06-04T16:59:26.332553663+09:00","level":"INFO","msg":"created new stream","id":"hdu91ewc"}
+{"time":"2025-06-04T16:59:26.332582467+09:00","level":"INFO","msg":"stream: started","id":"hdu91ewc"}
+{"time":"2025-06-04T16:59:26.33264459+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"hdu91ewc"}
+{"time":"2025-06-04T16:59:26.332712172+09:00","level":"INFO","msg":"sender: started","stream_id":"hdu91ewc"}
+{"time":"2025-06-04T16:59:26.332729388+09:00","level":"INFO","msg":"handler: started","stream_id":"hdu91ewc"}
+{"time":"2025-06-04T16:59:26.337987877+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-04T21:46:53.085385161+09:00","level":"INFO","msg":"stream: closing","id":"hdu91ewc"}
+{"time":"2025-06-04T21:46:53.085420174+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-04T21:46:53.085479132+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-04T21:46:53.085552903+09:00","level":"INFO","msg":"handler: closed","stream_id":"hdu91ewc"}
+{"time":"2025-06-04T21:46:53.0855644+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"hdu91ewc"}
+{"time":"2025-06-04T21:46:53.085588486+09:00","level":"INFO","msg":"sender: closed","stream_id":"hdu91ewc"}
+{"time":"2025-06-04T21:46:53.085654044+09:00","level":"INFO","msg":"stream: closed","id":"hdu91ewc"}

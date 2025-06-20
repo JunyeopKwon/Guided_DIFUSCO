@@ -1,0 +1,15 @@
+{"time":"2025-06-04T16:37:11.694758911+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/user/Desktop/kjy/DIFUSCO/data/models/wandb/offline-run-20250604_163711-v7ipilcf/logs/debug-core.log"}
+{"time":"2025-06-04T16:37:11.802341659+09:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-06-04T16:37:11.80254322+09:00","level":"INFO","msg":"created new stream","id":"v7ipilcf"}
+{"time":"2025-06-04T16:37:11.802572484+09:00","level":"INFO","msg":"stream: started","id":"v7ipilcf"}
+{"time":"2025-06-04T16:37:11.802637771+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"v7ipilcf"}
+{"time":"2025-06-04T16:37:11.802678642+09:00","level":"INFO","msg":"handler: started","stream_id":"v7ipilcf"}
+{"time":"2025-06-04T16:37:11.802710931+09:00","level":"INFO","msg":"sender: started","stream_id":"v7ipilcf"}
+{"time":"2025-06-04T16:37:11.806405166+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-04T16:47:04.446511772+09:00","level":"INFO","msg":"stream: closing","id":"v7ipilcf"}
+{"time":"2025-06-04T16:47:04.446556599+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-04T16:47:04.446667846+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-04T16:47:04.446842968+09:00","level":"INFO","msg":"handler: closed","stream_id":"v7ipilcf"}
+{"time":"2025-06-04T16:47:04.446870169+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"v7ipilcf"}
+{"time":"2025-06-04T16:47:04.44691141+09:00","level":"INFO","msg":"sender: closed","stream_id":"v7ipilcf"}
+{"time":"2025-06-04T16:47:04.446984279+09:00","level":"INFO","msg":"stream: closed","id":"v7ipilcf"}

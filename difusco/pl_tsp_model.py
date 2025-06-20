@@ -13,13 +13,20 @@ from co_datasets.tsp_graph_dataset import TSPGraphDataset
 from pl_meta_model import COMetaModel
 from utils.diffusion_schedulers import InferenceSchedule
 from utils.tsp_utils import TSPEvaluator, batched_two_opt_torch, merge_tours
+from utils.tsp_utils import nearest_neighbor_tour, dummy_heuristic, tour_to_adj#, alpha_2opt_heuristic
+from utils.christofides.christofides import christofides
+from utils.christofides.christofides_c import christofides_c
+from utils.nearest_neighbor.nearest_neighbor_c import nearest_neighbor_c
+from utils.alpha_2opt.alpha_2opt_cython import alpha_2opt_heuristic_cython
+from utils.convex_hull.convex_hull_cython import convex_hull_insertion_heuristic_cython
+from utils.farthest.farthest_cython import farthest_insertion_heuristic_cython
 
 
 class TSPModel(COMetaModel):
   def __init__(self,
                param_args=None):
     super(TSPModel, self).__init__(param_args=param_args, node_feature_only=False)
-
+    
     self.train_dataset = TSPGraphDataset(
         data_file=os.path.join(self.args.storage_path, self.args.training_split),
         sparse_factor=self.args.sparse_factor,
@@ -172,6 +179,11 @@ class TSPModel(COMetaModel):
       np_gt_tour = gt_tour.cpu().numpy().reshape(-1)
       np_edge_index = edge_index.cpu().numpy()
 
+    # print(f"real_batch_idx: {real_batch_idx}")
+    # print(f"np_gt_tour: {np_gt_tour}")
+    # print(f"np_points: {np_points}")
+    # print(f"adj_matrix: {adj_matrix}")
+
     stacked_tours = []
     ns, merge_iterations = 0, 0
 
@@ -183,7 +195,51 @@ class TSPModel(COMetaModel):
         edge_index = self.duplicate_edge_index(edge_index, np_points.shape[0], device)
 
     for _ in range(self.args.sequential_sampling):
-      xt = torch.randn_like(adj_matrix.float())
+      if self.args.guided == "None":
+        # Use Random initialization(Origianl DIFUSCO)
+        xt = torch.randn_like(adj_matrix.float()) # Initialize xt with random noise
+      else:
+        # Use guided initialization
+        if self.args.guided == 'NN':
+          # Use Neighbor Nearest algorithm for initialization
+          init_tour_np = dummy_heuristic(nearest_neighbor_tour, np_points)
+        elif self.args.guided == 'nearest_neighbor_c':
+          # Use Neighbor Nearest algorithm for initialization
+          init_tour_np = dummy_heuristic(nearest_neighbor_c, np_points.astype(np.float64))
+        elif self.args.guided == "Christofides":
+          init_tour_np = christofides(np_points)
+          # Use "python" Christofides' algorithm for initialization
+        elif self.args.guided == "Christofides_c":
+          init_tour_np = christofides_c(np_points)
+          # Use "c" Christofides' algorithm for initialization
+        elif self.args.guided == 'Christofides_with_2_opt':
+          # Use Christofides' algorithm with 2-opt post-processing for initialization
+          init_tour_np = dummy_heuristic(christofides, np_points)
+        elif self.args.guided == 'alpha_2opt_c':
+          # Use alpha-2opt heuristic for initialization
+          init_tour_np = alpha_2opt_heuristic_cython(np_points.astype(np.float64), k=10, max_iter=1000)
+        elif self.args.guided == 'convex_hull_c':
+          # Use convex hull insertion heuristic for initialization
+          init_tour_np = convex_hull_insertion_heuristic_cython(np_points.astype(np.float64))
+        elif self.args.guided == 'farthest_insertion_c':
+          # Use farthest insertion heuristic for initialization
+          init_tour_np = farthest_insertion_heuristic_cython(np_points.astype(np.float64))
+
+        else:
+          raise ValueError(f"Unknown guided initialization method: {self.args.guided}")
+                
+        adj0 = tour_to_adj(init_tour_np) # adj0: (N,N) binary
+        x0 = torch.tensor(adj0, dtype=torch.long).unsqueeze(0)           # [1,N,N]
+        x0_onehot = F.one_hot(x0, num_classes=2).float()                 # [1,N,N,2]
+        # returns xt with categorical noise
+        t_noise = self.args.guided_noise
+        xt = self.diffusion.sample(x0_onehot, np.array([t_noise]))       # [1,N,N] float(0/1)
+        xt = xt.squeeze(0)                                               # [N,N]
+        xt = torch.tensor(xt.numpy(), dtype=torch.float32, device=device).unsqueeze(0) # [1,N,N]  
+
+
+      #print("xt before initialization:")
+      #print(f"xt: {xt}, xt.shape: {xt.shape}, dtype: {xt.dtype}")
       if self.args.parallel_sampling > 1:
         if not self.sparse:
           xt = xt.repeat(self.args.parallel_sampling, 1, 1)
@@ -198,6 +254,9 @@ class TSPModel(COMetaModel):
 
       if self.sparse:
         xt = xt.reshape(-1)
+
+      #print("xt after initialization:")
+      #print(f"xt: {xt}, xt.shape: {xt.shape}, dtype: {xt.dtype}")
 
       steps = self.args.inference_diffusion_steps
       time_schedule = InferenceSchedule(inference_schedule=self.args.inference_schedule,
@@ -245,14 +304,20 @@ class TSPModel(COMetaModel):
     all_solved_costs = [tsp_solver.evaluate(solved_tours[i]) for i in range(total_sampling)]
     best_solved_cost = np.min(all_solved_costs)
 
+    # For calculating the Init cost(위에 for 문 안에 있어야됨 -> 속도 저하 발생할 수 있음)
+    #processed_init_tour = init_tour_np[1:]
+    #init_cost = tsp_solver.evaluate(processed_init_tour)
+
+    # f"{split}/init_cost": init_cost,
     metrics = {
         f"{split}/gt_cost": gt_cost,
-        f"{split}/2opt_iterations": ns,
+        f"{split}/2opt_iterations": float(ns),
         f"{split}/merge_iterations": merge_iterations,
     }
     for k, v in metrics.items():
       self.log(k, v, on_epoch=True, sync_dist=True)
     self.log(f"{split}/solved_cost", best_solved_cost, prog_bar=True, on_epoch=True, sync_dist=True)
+
     return metrics
 
   def run_save_numpy_heatmap(self, adj_mat, np_points, real_batch_idx, split):

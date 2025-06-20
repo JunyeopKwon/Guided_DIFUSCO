@@ -57,10 +57,11 @@ def main(
     num_files=16,
     heatmap_prefix="heatmap",
 ):
-    for i in range(num_files):
+      for i in range(num_files):
         file_name = f"{heatmap_dir}/numpy_heatmap/test-{heatmap_prefix}-{i}.npy"
         print(file_name)
-        points_file_name = f"{heatmap_dir}/numpy_heatmap/test-points-{i}.npy"
+      
+      points_file_name = f"{heatmap_dir}/numpy_heatmap/test-points-{i}.npy"
       adj_mat = np.load(file_name)
       points = np.load(points_file_name)
 
@@ -109,7 +110,7 @@ def main(
       solved_costs.append(solved_cost)
       print(f'Cost: {solved_cost}')
 
-    print("mean_solved_costs", np.mean(solved_costs))
+      print("mean_solved_costs", np.mean(solved_costs))
 
 
 if __name__ == "__main__":

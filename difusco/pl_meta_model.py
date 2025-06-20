@@ -5,7 +5,7 @@ import pytorch_lightning as pl
 import torch
 import torch.nn.functional as F
 import torch.utils.data
-from torch_geometric.data import DataLoader as GraphDataLoader
+from torch_geometric.loader import DataLoader as GraphDataLoader
 from pytorch_lightning.utilities import rank_zero_info
 
 from models.gnn_encoder import GNNEncoder
@@ -58,6 +58,22 @@ class COMetaModel(pl.LightningModule):
     for k, v in unmerged_metrics.items():
       merged_metrics[k] = float(np.mean(v))
     self.logger.log_metrics(merged_metrics, step=self.global_step)
+
+  # --- New method for PyTorch Lightning 2.x ---
+  # def test_epoch_end(self):
+  #   unmerged_metrics = {}
+  #   if self.test_step_outputs:
+  #     for metrics in self.test_step_outputs:
+  #       for k, v in metrics.items():
+  #         if k not in unmerged_metrics:
+  #           unmerged_metrics[k] = []
+  #         unmerged_metrics[k].append(v)
+
+  #     merged_metrics = {}
+  #     for k, v in unmerged_metrics.items():
+  #       merged_metrics[k] = float(np.mean(v))
+  #     self.logger.log_metrics(merged_metrics, step=self.global_step)
+  #   pass
 
   def get_total_num_training_steps(self) -> int:
     """Total training steps inferred from datamodule and devices."""

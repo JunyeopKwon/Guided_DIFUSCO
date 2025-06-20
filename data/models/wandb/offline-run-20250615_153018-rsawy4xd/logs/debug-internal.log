@@ -1,0 +1,15 @@
+{"time":"2025-06-15T15:30:18.494918529+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/user/Desktop/kjy/DIFUSCO/data/models/wandb/offline-run-20250615_153018-rsawy4xd/logs/debug-core.log"}
+{"time":"2025-06-15T15:30:18.599838459+09:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-06-15T15:30:18.599934202+09:00","level":"INFO","msg":"created new stream","id":"rsawy4xd"}
+{"time":"2025-06-15T15:30:18.599953401+09:00","level":"INFO","msg":"stream: started","id":"rsawy4xd"}
+{"time":"2025-06-15T15:30:18.599988463+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"rsawy4xd"}
+{"time":"2025-06-15T15:30:18.600065008+09:00","level":"INFO","msg":"sender: started","stream_id":"rsawy4xd"}
+{"time":"2025-06-15T15:30:18.600120982+09:00","level":"INFO","msg":"handler: started","stream_id":"rsawy4xd"}
+{"time":"2025-06-15T15:30:18.603812122+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-15T15:34:22.869768678+09:00","level":"INFO","msg":"stream: closing","id":"rsawy4xd"}
+{"time":"2025-06-15T15:34:22.869807386+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-15T15:34:22.86985643+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-15T15:34:22.869946595+09:00","level":"INFO","msg":"handler: closed","stream_id":"rsawy4xd"}
+{"time":"2025-06-15T15:34:22.869959995+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"rsawy4xd"}
+{"time":"2025-06-15T15:34:22.870012794+09:00","level":"INFO","msg":"sender: closed","stream_id":"rsawy4xd"}
+{"time":"2025-06-15T15:34:22.870104892+09:00","level":"INFO","msg":"stream: closed","id":"rsawy4xd"}

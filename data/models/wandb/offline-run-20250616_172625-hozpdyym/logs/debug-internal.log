@@ -1,0 +1,15 @@
+{"time":"2025-06-16T17:26:25.470033191+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/user/Desktop/kjy/DIFUSCO/data/models/wandb/offline-run-20250616_172625-hozpdyym/logs/debug-core.log"}
+{"time":"2025-06-16T17:26:25.577325603+09:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-06-16T17:26:25.577487145+09:00","level":"INFO","msg":"created new stream","id":"hozpdyym"}
+{"time":"2025-06-16T17:26:25.577558432+09:00","level":"INFO","msg":"stream: started","id":"hozpdyym"}
+{"time":"2025-06-16T17:26:25.577579533+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"hozpdyym"}
+{"time":"2025-06-16T17:26:25.577643679+09:00","level":"INFO","msg":"sender: started","stream_id":"hozpdyym"}
+{"time":"2025-06-16T17:26:25.577723448+09:00","level":"INFO","msg":"handler: started","stream_id":"hozpdyym"}
+{"time":"2025-06-16T17:26:25.581727171+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-16T18:48:53.844819194+09:00","level":"INFO","msg":"stream: closing","id":"hozpdyym"}
+{"time":"2025-06-16T18:48:53.844859114+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-16T18:48:53.844922299+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-16T18:48:53.845002639+09:00","level":"INFO","msg":"handler: closed","stream_id":"hozpdyym"}
+{"time":"2025-06-16T18:48:53.845014597+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"hozpdyym"}
+{"time":"2025-06-16T18:48:53.84504306+09:00","level":"INFO","msg":"sender: closed","stream_id":"hozpdyym"}
+{"time":"2025-06-16T18:48:53.845212483+09:00","level":"INFO","msg":"stream: closed","id":"hozpdyym"}

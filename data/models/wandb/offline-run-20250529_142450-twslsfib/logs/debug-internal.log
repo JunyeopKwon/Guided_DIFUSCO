@@ -1,0 +1,15 @@
+{"time":"2025-05-29T14:24:51.267726886+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/user/Desktop/kjy/DIFUSCO/data/models/wandb/offline-run-20250529_142450-twslsfib/logs/debug-core.log"}
+{"time":"2025-05-29T14:24:51.375459652+09:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-05-29T14:24:51.375621044+09:00","level":"INFO","msg":"created new stream","id":"twslsfib"}
+{"time":"2025-05-29T14:24:51.375649276+09:00","level":"INFO","msg":"stream: started","id":"twslsfib"}
+{"time":"2025-05-29T14:24:51.375673072+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"twslsfib"}
+{"time":"2025-05-29T14:24:51.375717478+09:00","level":"INFO","msg":"handler: started","stream_id":"twslsfib"}
+{"time":"2025-05-29T14:24:51.375750227+09:00","level":"INFO","msg":"sender: started","stream_id":"twslsfib"}
+{"time":"2025-05-29T14:24:51.380887399+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-29T14:25:00.391201453+09:00","level":"INFO","msg":"stream: closing","id":"twslsfib"}
+{"time":"2025-05-29T14:25:00.39123277+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-29T14:25:00.391304036+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-29T14:25:00.391409715+09:00","level":"INFO","msg":"handler: closed","stream_id":"twslsfib"}
+{"time":"2025-05-29T14:25:00.391421242+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"twslsfib"}
+{"time":"2025-05-29T14:25:00.391480691+09:00","level":"INFO","msg":"sender: closed","stream_id":"twslsfib"}
+{"time":"2025-05-29T14:25:00.39157378+09:00","level":"INFO","msg":"stream: closed","id":"twslsfib"}

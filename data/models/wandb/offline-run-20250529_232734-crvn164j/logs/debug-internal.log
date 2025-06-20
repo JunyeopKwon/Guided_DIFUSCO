@@ -1,0 +1,15 @@
+{"time":"2025-05-29T23:27:34.820644776+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/user/Desktop/kjy/DIFUSCO/data/models/wandb/offline-run-20250529_232734-crvn164j/logs/debug-core.log"}
+{"time":"2025-05-29T23:27:34.927304281+09:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-05-29T23:27:34.927460584+09:00","level":"INFO","msg":"created new stream","id":"crvn164j"}
+{"time":"2025-05-29T23:27:34.927489938+09:00","level":"INFO","msg":"stream: started","id":"crvn164j"}
+{"time":"2025-05-29T23:27:34.927548245+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"crvn164j"}
+{"time":"2025-05-29T23:27:34.927563377+09:00","level":"INFO","msg":"handler: started","stream_id":"crvn164j"}
+{"time":"2025-05-29T23:27:34.927578119+09:00","level":"INFO","msg":"sender: started","stream_id":"crvn164j"}
+{"time":"2025-05-29T23:27:34.931342622+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-30T00:17:27.589546192+09:00","level":"INFO","msg":"stream: closing","id":"crvn164j"}
+{"time":"2025-05-30T00:17:27.589586472+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-30T00:17:27.589654174+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-30T00:17:27.589746672+09:00","level":"INFO","msg":"handler: closed","stream_id":"crvn164j"}
+{"time":"2025-05-30T00:17:27.589758029+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"crvn164j"}
+{"time":"2025-05-30T00:17:27.589792701+09:00","level":"INFO","msg":"sender: closed","stream_id":"crvn164j"}
+{"time":"2025-05-30T00:17:27.589914103+09:00","level":"INFO","msg":"stream: closed","id":"crvn164j"}

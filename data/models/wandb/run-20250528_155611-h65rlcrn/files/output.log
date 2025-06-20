@@ -1,0 +1,47 @@
+Logging to /home/user/Desktop/kjy/DIFUSCO/data/models/tsp_diffusion_graph_categorical_tsp500_test/h65rlcrn
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+----------------------------------------------------------------------------------------------------
+GNNEncoder(
+  (node_embed): Linear(in_features=256, out_features=256, bias=True)
+  (edge_embed): Linear(in_features=256, out_features=256, bias=True)
+  (pos_embed): PositionEmbeddingSine()
+  (edge_pos_embed): ScalarEmbeddingSine()
+  (time_embed): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (out): Sequential(
+    (0): GroupNorm32(32, 256, eps=1e-05, affine=True)
+    (1): ReLU()
+    (2): Conv2d(256, 2, kernel_size=(1, 1), stride=(1, 1))
+  )
+  (layers): ModuleList(
+    (0-11): 12 x GNNLayer(
+      (U): Linear(in_features=256, out_features=256, bias=True)
+      (V): Linear(in_features=256, out_features=256, bias=True)
+      (A): Linear(in_features=256, out_features=256, bias=True)
+      (B): Linear(in_features=256, out_features=256, bias=True)
+      (C): Linear(in_features=256, out_features=256, bias=True)
+      (norm_h): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      (norm_e): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (time_embed_layers): ModuleList(
+    (0-11): 12 x Sequential(
+      (0): ReLU()
+      (1): Linear(in_features=128, out_features=256, bias=True)
+    )
+  )
+  (per_layer_out): ModuleList(
+    (0-11): 12 x Sequential(
+      (0): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      (1): SiLU()
+      (2): Linear(in_features=256, out_features=256, bias=True)
+    )
+  )
+)
+----------------------------------------------------------------------------------------------------

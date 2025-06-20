@@ -1,0 +1,13 @@
+total 7944
+-rw-rw-r-- 1 user user 3254730  5월 26 15:24 bernouli_difusco_demo.gif
+drwxrwxr-x 6 user user    4096  6월 15 20:56 data
+drwxrwxr-x 6 user user    4096  5월 28 15:07 difusco
+-rw-rw-r-- 1 user user    3756  5월 26 20:38 environment.yml
+-rw-rw-r-- 1 user user 4191721  5월 26 15:24 gaussian_difusco_demo_v2.gif
+-rw-rw-r-- 1 user user    1068  5월 26 15:24 LICENSE
+-rw-rw-r-- 1 user user       0  6월 16 12:31 my_log.txt
+-rw-rw-r-- 1 user user    1794  5월 26 15:24 README.md
+-rw-rw-r-- 1 user user   11071  5월 26 15:24 reproducing_scripts.md
+-rw-rw-r-- 1 user user  641235  5월 26 15:24 tsp_illustration.png
+drwxrwxr-x 3 user user    4096  5월 26 15:24 tsp_mcts
+drwxrwxr-x 3 user user    4096  5월 28 17:30 wandb

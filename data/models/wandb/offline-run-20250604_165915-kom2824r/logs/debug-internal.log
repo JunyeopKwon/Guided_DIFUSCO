@@ -1,0 +1,15 @@
+{"time":"2025-06-04T16:59:15.888628258+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/user/Desktop/kjy/DIFUSCO/data/models/wandb/offline-run-20250604_165915-kom2824r/logs/debug-core.log"}
+{"time":"2025-06-04T16:59:15.997247237+09:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-06-04T16:59:15.997447959+09:00","level":"INFO","msg":"created new stream","id":"kom2824r"}
+{"time":"2025-06-04T16:59:15.997480749+09:00","level":"INFO","msg":"stream: started","id":"kom2824r"}
+{"time":"2025-06-04T16:59:15.997553929+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"kom2824r"}
+{"time":"2025-06-04T16:59:15.997576383+09:00","level":"INFO","msg":"handler: started","stream_id":"kom2824r"}
+{"time":"2025-06-04T16:59:15.997683694+09:00","level":"INFO","msg":"sender: started","stream_id":"kom2824r"}
+{"time":"2025-06-04T16:59:16.001240571+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-04T22:51:40.948746374+09:00","level":"INFO","msg":"stream: closing","id":"kom2824r"}
+{"time":"2025-06-04T22:51:40.948779403+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-04T22:51:40.948846114+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-04T22:51:40.948932914+09:00","level":"INFO","msg":"handler: closed","stream_id":"kom2824r"}
+{"time":"2025-06-04T22:51:40.948945553+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"kom2824r"}
+{"time":"2025-06-04T22:51:40.948986294+09:00","level":"INFO","msg":"sender: closed","stream_id":"kom2824r"}
+{"time":"2025-06-04T22:51:40.94900993+09:00","level":"INFO","msg":"stream: closed","id":"kom2824r"}

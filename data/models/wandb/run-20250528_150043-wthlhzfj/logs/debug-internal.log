@@ -1,0 +1,15 @@
+{"time":"2025-05-28T15:00:43.837731293+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/user/Desktop/kjy/DIFUSCO/data/models/wandb/run-20250528_150043-wthlhzfj/logs/debug-core.log"}
+{"time":"2025-05-28T15:00:44.134576816+09:00","level":"INFO","msg":"created new stream","id":"wthlhzfj"}
+{"time":"2025-05-28T15:00:44.134638699+09:00","level":"INFO","msg":"stream: started","id":"wthlhzfj"}
+{"time":"2025-05-28T15:00:44.134668864+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"wthlhzfj"}
+{"time":"2025-05-28T15:00:44.134699921+09:00","level":"INFO","msg":"handler: started","stream_id":"wthlhzfj"}
+{"time":"2025-05-28T15:00:44.134754003+09:00","level":"INFO","msg":"sender: started","stream_id":"wthlhzfj"}
+{"time":"2025-05-28T15:00:44.583083501+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-28T15:00:44.707725206+09:00","level":"INFO","msg":"stream: closing","id":"wthlhzfj"}
+{"time":"2025-05-28T15:00:44.707758006+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-28T15:00:44.707801962+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-28T15:00:45.990657371+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-28T15:00:46.579988169+09:00","level":"INFO","msg":"handler: closed","stream_id":"wthlhzfj"}
+{"time":"2025-05-28T15:00:46.580039477+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"wthlhzfj"}
+{"time":"2025-05-28T15:00:46.580070774+09:00","level":"INFO","msg":"sender: closed","stream_id":"wthlhzfj"}
+{"time":"2025-05-28T15:00:46.580154961+09:00","level":"INFO","msg":"stream: closed","id":"wthlhzfj"}

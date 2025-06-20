@@ -6,7 +6,10 @@ import numpy as np
 import scipy.sparse
 import scipy.spatial
 import torch
+import torch.nn.functional as F
 from utils.cython_merge.cython_merge import merge_cython
+import networkx as nx
+from scipy.spatial import distance_matrix
 
 
 def batched_two_opt_torch(points, tour, max_iterations=1000, device="cpu"):
@@ -144,6 +147,122 @@ def merge_tours(adj_mat, np_points, edge_index_np, sparse_graph=False, parallel_
   merge_iterations = np.mean(splitted_merge_iterations)
   return tours, merge_iterations
 
+def nearest_neighbor_tour(points):
+    N = len(points)
+    unvisited = set(range(N))
+    tour = [unvisited.pop()]  # 임의의 시작점
+    while unvisited:
+        last = tour[-1]
+        next_city = min(unvisited, key=lambda j: np.linalg.norm(points[last] - points[j]))
+        unvisited.remove(next_city)
+        tour.append(next_city)
+    tour.append(tour[0])  # 돌아오기
+    return np.array(tour, dtype=int)
+
+def alpha_2opt_heuristic(points, k=10, max_iter=1000):
+
+    def compute_alpha_nearness(points):
+        N = len(points)
+        dist = distance_matrix(points, points)
+        G = nx.Graph()
+        for i in range(N):
+            for j in range(i + 1, N):
+                G.add_edge(i, j, weight=dist[i, j])
+        mst = nx.minimum_spanning_tree(G)
+        alpha = np.full((N, N), np.inf)
+        for i in range(N):
+            for j in range(i + 1, N):
+                if mst.has_edge(i, j):
+                    alpha[i, j] = alpha[j, i] = 0
+                else:
+                    try:
+                        path = nx.shortest_path(mst, source=i, target=j, weight='weight')
+                        max_edge = max(dist[path[k], path[k + 1]] for k in range(len(path) - 1))
+                        alpha[i, j] = alpha[j, i] = dist[i, j] - max_edge
+                    except nx.NetworkXNoPath:
+                        continue
+        return alpha, dist
+
+    def initial_tour(points, candidates):
+        N = len(points)
+        visited = [False] * N
+        tour = [0]
+        visited[0] = True
+        current = 0
+        while len(tour) < N:
+            next_city = None
+            for j in candidates[current]:
+                if not visited[j]:
+                    next_city = j
+                    break
+            if next_city is None:
+                unvisited = [i for i in range(N) if not visited[i]]
+                next_city = min(unvisited, key=lambda j: dist[current][j])
+            tour.append(next_city)
+            visited[next_city] = True
+            current = next_city
+        return tour
+
+    def two_opt(tour):
+        improved = True
+        count = 0
+        while improved and count < max_iter:
+            improved = False
+            for i in range(1, len(tour) - 2):
+                for j in range(i + 1, len(tour) - 1):
+                    if j - i == 1: continue
+                    a, b = tour[i - 1], tour[i]
+                    c, d = tour[j], tour[(j + 1) % len(tour)]
+                    if dist[a][b] + dist[c][d] > dist[a][c] + dist[b][d]:
+                        tour[i:j + 1] = tour[i:j + 1][::-1]
+                        improved = True
+            count += 1
+        return tour
+
+    # -- Main execution --
+    alpha, dist = compute_alpha_nearness(points)
+
+    # Build candidate set
+    candidates = []
+    for i in range(len(points)):
+        sorted_neighbors = np.argsort(alpha[i])
+        candidates.append([j for j in sorted_neighbors if j != i][:k])
+
+    tour = initial_tour(points, candidates)
+    tour = two_opt(tour)
+    return tour
+
+
+def dummy_heuristic(approx_algo, points):
+    # 1) NN 으로 초기가
+    tour = approx_algo(points)
+    # 2) 1회 2-opt 수행 (utils.tsp_utils.batched_two_opt_torch 활용 가능)
+    improved, _ = batched_two_opt_torch(
+        points.astype("float64"),
+        tour[None, :],
+        max_iterations=1,
+        device="cpu"
+    )
+    return improved[0]  # (N+1,) 배열
+
+
+def tour_to_adj(tour):
+    N = int(np.max(tour)) + 1   # 원래 도시 개수
+    adj = np.zeros((N, N), dtype=np.float32)
+    for i in range(len(tour) - 1):
+        u, v = tour[i], tour[i+1]
+        adj[u, v] = 1
+        adj[v, u] = 1
+    return adj
+
+
+# def apply_forward_diffusion(adj_np, t_noise):
+#     # adj_np: (N,N) binary
+#     x0 = torch.tensor(adj_np, dtype=torch.long).unsqueeze(0)           # [1,N,N]
+#     x0_onehot = F.one_hot(x0, num_classes=2).float()                   # [1,N,N,2]
+#     # returns xt with categorical noise
+#     xt = self.diffusion.sample(x0_onehot, np.array([t_noise]))       # [1,N,N] float(0/1)
+#     return xt.squeeze(0)                                              # [N,N]
 
 class TSPEvaluator(object):
   def __init__(self, points):

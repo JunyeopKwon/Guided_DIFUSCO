@@ -8,7 +8,7 @@ import lkh
 import numpy as np
 import tqdm
 import tsplib95
-from concorde.tsp import TSPSolver  # https://github.com/jvkersch/pyconcorde
+from pyconcorde.tsp import TSPSolver  # https://github.com/jvkersch/pyconcorde
 
 warnings.filterwarnings("ignore")
 
@@ -16,11 +16,11 @@ warnings.filterwarnings("ignore")
 if __name__ == "__main__":
   parser = argparse.ArgumentParser()
   parser.add_argument("--min_nodes", type=int, default=20)
-  parser.add_argument("--max_nodes", type=int, default=50)
-  parser.add_argument("--num_samples", type=int, default=128000)
+  parser.add_argument("--max_nodes", type=int, default=30)
+  parser.add_argument("--num_samples", type=int, default=128)
   parser.add_argument("--batch_size", type=int, default=128)
   parser.add_argument("--filename", type=str, default=None)
-  parser.add_argument("--solver", type=str, default="lkh")
+  parser.add_argument("--solver", type=str, default="concorde")
   parser.add_argument("--lkh_trails", type=int, default=1000)
   parser.add_argument("--seed", type=int, default=1234)
   opts = parser.parse_args()
@@ -30,7 +30,7 @@ if __name__ == "__main__":
   np.random.seed(opts.seed)
 
   if opts.filename is None:
-    opts.filename = f"tsp{opts.min_nodes}-{opts.max_nodes}_concorde.txt"
+    opts.filename = f"tsp{opts.min_nodes}-{opts.max_nodes}_{opts.solver}.txt"
 
   # Pretty print the run args
   pp.pprint(vars(opts))
@@ -51,7 +51,7 @@ if __name__ == "__main__":
           tour = solution.tour
         elif opts.solver == "lkh":
           scale = 1e6
-          lkh_path = 'LKH-3.0.6/LKH'
+          lkh_path = "data/LKH-3.0.12/LKH" #'LKH-3.0.12/LKH'
           problem = tsplib95.models.StandardProblem()
           problem.name = 'TSP'
           problem.type = 'TSP'

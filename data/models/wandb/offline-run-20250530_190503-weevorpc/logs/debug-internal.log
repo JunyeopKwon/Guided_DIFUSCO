@@ -1,0 +1,15 @@
+{"time":"2025-05-30T19:05:03.530999577+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/user/Desktop/kjy/DIFUSCO/data/models/wandb/offline-run-20250530_190503-weevorpc/logs/debug-core.log"}
+{"time":"2025-05-30T19:05:03.63794983+09:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-05-30T19:05:03.638125393+09:00","level":"INFO","msg":"created new stream","id":"weevorpc"}
+{"time":"2025-05-30T19:05:03.638155799+09:00","level":"INFO","msg":"stream: started","id":"weevorpc"}
+{"time":"2025-05-30T19:05:03.638192704+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"weevorpc"}
+{"time":"2025-05-30T19:05:03.638238993+09:00","level":"INFO","msg":"handler: started","stream_id":"weevorpc"}
+{"time":"2025-05-30T19:05:03.638279754+09:00","level":"INFO","msg":"sender: started","stream_id":"weevorpc"}
+{"time":"2025-05-30T19:05:03.642571389+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-30T20:30:17.443143557+09:00","level":"INFO","msg":"stream: closing","id":"weevorpc"}
+{"time":"2025-05-30T20:30:17.443206821+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-30T20:30:17.443250657+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-30T20:30:17.443357437+09:00","level":"INFO","msg":"handler: closed","stream_id":"weevorpc"}
+{"time":"2025-05-30T20:30:17.443376466+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"weevorpc"}
+{"time":"2025-05-30T20:30:17.443390116+09:00","level":"INFO","msg":"sender: closed","stream_id":"weevorpc"}
+{"time":"2025-05-30T20:30:17.443473271+09:00","level":"INFO","msg":"stream: closed","id":"weevorpc"}

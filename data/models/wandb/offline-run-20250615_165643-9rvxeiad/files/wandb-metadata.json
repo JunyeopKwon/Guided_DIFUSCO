@@ -1,0 +1,51 @@
+{
+  "os": "Linux-6.8.0-52-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.9.18",
+  "startedAt": "2025-06-15T07:56:43.876469Z",
+  "args": [
+    "--task",
+    "tsp",
+    "--do_test",
+    "--guided",
+    "convex_hull_c",
+    "--guided_noise",
+    "700",
+    "--resume_weight_only"
+  ],
+  "program": "/home/user/Desktop/kjy/DIFUSCO/difusco/train.py",
+  "codePath": "difusco/train.py",
+  "git": {
+    "remote": "https://github.com/Edward-Sun/DIFUSCO",
+    "commit": "65eb3b7bde76097c0d3438ce743fa6769baf9ce5"
+  },
+  "root": "/home/user/Desktop/kjy/DIFUSCO/data/models",
+  "host": "user-ESC4000A-E12",
+  "executable": "/home/user/anaconda3/envs/difusco2/bin/python",
+  "codePathLocal": "difusco/train.py",
+  "cpu_count": 32,
+  "cpu_count_logical": 64,
+  "gpu": "NVIDIA RTX A6000",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "943412031488",
+      "used": "828547227648"
+    }
+  },
+  "memory": {
+    "total": "269952409600"
+  },
+  "cpu": {
+    "count": 32,
+    "countLogical": 64
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA RTX A6000",
+      "memoryTotal": "51527024640",
+      "cudaCores": 10752,
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "12.4"
+}
